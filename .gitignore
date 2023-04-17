@@ -13,6 +13,5 @@
 .externalNativeBuild
 .cxx
 local.properties
-keystore.properties
 # Project exclude paths
 /buildSrc/build/
