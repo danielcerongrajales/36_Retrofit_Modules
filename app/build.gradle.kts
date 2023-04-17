@@ -1,24 +1,19 @@
-import extension.*
-
 plugins {
-    id (Plugins.ANDROID_APPLICATION_PLUGIN)
-    id (Plugins.JETBRAINS_KOTLIN)
-    id (Plugins.KOTLIN_KAPT_PLUGIN)
-    id(Plugins.DAGGER_HILT_PLUGIN)
+    id("convention.application.convention")
+    id("convention.hilt.convention")
+    id("convention.pagging.convention")
+
 }
 
 android {
-    compileSdk = 32
 
 
     defaultConfig {
         applicationId ="com.example.a36_retrofit_modules"
-        minSdk =21
         targetSdk= 32
         versionCode= 1
         versionName ="1.0"
 
-        testInstrumentationRunner ="androidx.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -30,13 +25,7 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility =JavaVersion.VERSION_1_8
-        targetCompatibility =JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+  
     buildFeatures{
         viewBinding= true
     }
@@ -47,42 +36,37 @@ dependencies {
     implementation (project(":data"))
 
     //splashscreen
-    implementation(Deps.splashscreen)
+    implementation(libs.splashscreen)
     //shimmer
-    shimmer()
+    implementation(libs.shimmer)
     //lottie
-    lottie()
+    implementation(libs.lottie)
     //Glide
-    glide()
+    implementation(libs.glide)
+    kapt(libs.glideCompile)
     //coil
-   coil()
+    implementation(libs.coil)
+
 //    implementation 'com.github.jakob-grabner:Circle-Progress-View:1.4'
 
 
-
-    //paging 3
-    paging()
-    //dagger hilt
-    hilt()
-
     //Corrutinas
-    coroutines()
+    implementation(libs.coroutines)
     // ViewModelScope
-    viewmodel()
+    implementation(libs.viewmodel)
     // LiveData
-    livedata()
+    implementation(libs.livedata)
     // Activity
-    activity()
+    implementation(libs.activity)
     // navigationFragment
-    navigationFragment()
+    implementation(libs.navigationFragment)
     //navigationUi
-    navigationUi()
+    implementation(libs.navigationUi)
     //constraintlayout
-    constraintlayout()
+    implementation(libs.constraintlayout)
+   
 
 
 
-    //common
-    common()
 
 }

@@ -1,29 +1,14 @@
-import extension.*
 import java.util.*
-import java.io.FileInputStream
 plugins {
-
-    id(Plugins.ANDROID_LIBRARY_PLUGIN)
-    id(Plugins.JETBRAINS_KOTLIN)
-    id(Plugins.KOTLIN_KAPT_PLUGIN)
-    id(Plugins.PARCELIZE)
-    id(Plugins.DAGGER_HILT_PLUGIN)
-
-
+    id("convention.library.convention")
+    id("kotlin-parcelize")
+    id("convention.hilt.convention")
+    id("convention.pagging.convention")
+    id("convention.room.convention")
 }
 
 android {
-    compileSdk =32
 
-    defaultConfig {
-        minSdk =21
-        targetSdk= 32
-
-        testInstrumentationRunner =("androidx.test.runner.AndroidJUnitRunner")
-        consumerProguardFiles ("consumer-rules.pro")
-        buildConfigField ("String", "MOVIE_API_KEY", "\"" + getApiKey() + "\"")
-
-    }
 
     buildTypes {
         getByName("release") {
@@ -33,35 +18,16 @@ android {
             )
         }
     }
-    compileOptions {
-        sourceCompatibility= JavaVersion.VERSION_1_8
-        targetCompatibility =JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
+
 }
 
 dependencies {
     implementation (project(":domain"))
-    //paging 3
-    paging()
-    //ROOM
-    room()
-    roomPaging()
+
     // Retrofit
-    retrofit()
-    //dagger hilt
-    hilt()
+    implementation(libs.retrofit)
+    implementation(libs.retrofitGson)
 
-    //common
-    common()
 
-}
 
-fun getApiKey():Any? {
-    val apikeyPropertiesFile = File("keystore.properties")
-    val apikeyProperties =Properties()
-    apikeyProperties.load(FileInputStream(apikeyPropertiesFile))
-    return apikeyProperties.getProperty("MOVIE_API_KEY")
 }
