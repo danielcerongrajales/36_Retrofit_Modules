@@ -1,17 +1,20 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-buildscript {
-//    ext.hilt_version = '2.42'
-    dependencies {
-        classpath(Plugins.CLASSPATH_DAGGER_HILT)
-//        classpath ("com.google.dagger:hilt-android-gradle-plugin:2.42")
 
+buildscript {
+    repositories{
+        google()
+        mavenCentral()
     }
+
 }
 plugins {
-    id ("com.android.application") version "7.2.1" apply false
-    id ("com.android.library") version "7.2.1" apply false
-    id ("org.jetbrains.kotlin.android") version "1.7.10" apply false
+    id ("com.android.application") version "8.1.1" apply false
+    id("org.jetbrains.kotlin.jvm") version "1.9.0" apply false
+    id ("com.google.dagger.hilt.android") version "2.48" apply false
+    id("com.google.devtools.ksp") version "1.9.0-1.0.13" apply false
+
 }
 task<Delete>("clean") {
     delete=setOf( rootProject.buildDir)
 }
+
+
