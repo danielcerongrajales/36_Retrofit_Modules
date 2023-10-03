@@ -1,4 +1,4 @@
-import extension.*
+
 
 plugins {
     id("com.android.application")
@@ -65,7 +65,6 @@ dependencies {
     //shimmer
     implementation("com.facebook.shimmer:shimmer:0.5.0")
     //lottie
-    lottie()
     implementation("com.airbnb.android:lottie:6.0.0")
     //Glide
 //    glide()
