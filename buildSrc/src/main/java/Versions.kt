@@ -13,7 +13,7 @@ object Versions {
     const val glide="4.13.0"
     const val paging="3.1.1"
     const val retrofit="2.9.0"
-    const val hilt = "2.42"
+    const val hilt = "2.48"
     const val room="2.4.2"
     const val coil="2.1.0"
 

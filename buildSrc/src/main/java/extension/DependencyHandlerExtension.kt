@@ -24,7 +24,7 @@ fun DependencyHandler.lottie() {
 }
 fun DependencyHandler.glide() {
     implementation(Deps.glide)
-    kapt(Deps.glideCompile)
+//    kapt(Deps.glideCompile)
 }
 fun DependencyHandler.paging() {
     implementation(Deps.pagingCommon)
@@ -33,7 +33,7 @@ fun DependencyHandler.paging() {
 }
 fun DependencyHandler.hilt() {
     implementation(Deps.hilt)
-    kapt(Deps.hiltCompile)
+//    kapt(Deps.hiltCompile)
 
 
 }
@@ -45,7 +45,7 @@ fun DependencyHandler.retrofit() {
 }
 fun DependencyHandler.room() {
     implementation(Deps.roomRuntime)
-    kapt(Deps.roomCompile)
+//    kapt(Deps.roomCompile)
     implementation(Deps.roomKtx)
 
 
@@ -95,8 +95,7 @@ private fun DependencyHandler.implementation(dependencyNotation: Any): Dependenc
 private fun DependencyHandler.api(dependencyNotation: Any): Dependency? =
     add("api", dependencyNotation)
 
-private fun DependencyHandler.kapt(dependencyNotation: Any): Dependency? =
-    add("kapt", dependencyNotation)
+
 
 private fun DependencyHandler.testImplementation(dependencyNotation: Any): Dependency? =
     add("testImplementation", dependencyNotation)
